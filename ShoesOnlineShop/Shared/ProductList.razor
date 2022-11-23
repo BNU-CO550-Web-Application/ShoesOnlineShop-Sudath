@@ -1,12 +1,22 @@
-﻿<h3>Product List</h3>
+﻿@*UI Section*@
+<h3>Product List</h3>
 
+@foreach(Product product in Products)
+{
+    <h4>@product.Id: @product.Name</h4>
+    <p>@product.Description</p>
+    <p>£@product.Price</p>
+}
+
+@*Code Section*@
 @code {
 
+    [EditorRequired]
     [Parameter]
-    public List<Product>Products { get; set; } = new();
+   // public List<Product> Products { get; set; } = new();
+    public List<Product>Products { get; set; } = ProductServicec.Products.ToList();
 
     [Parameter]
     public bool DisplayBuyButton { get; set; } = false;
-
-
 }
+

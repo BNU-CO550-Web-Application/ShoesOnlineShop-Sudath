@@ -1,4 +1,5 @@
 ﻿@*UI Section*@
+@inject CartService CartService
 <h3>Product List</h3>
 
 @foreach(Product product in Products)
@@ -14,25 +15,14 @@
             <h5 class="card-title">Shoe @product.Id: @product.Name</h5>
             <p class="card-text">@product.Description</p>
             <blockquote class="card-text"><strong>£@product.Price</strong></blockquote>
+
             @if(DisplayBuyButton)
             {
-                <a href="#" class="btn btn-primary">Buy</a>
+                <button class="btn btn-primary" type="button"
+                    @onclick="() => Buy(product.Id)">Buy</button>
             }
         </div>
     </div>
-    
-        @*<ul class="list-group list-group-flush">
-                              <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
-                            <div class="card-body">*@
-                                @*<a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>*@
-          
-                            @*<h4>@product.Id: @product.Name</h4>
-                            <p>@product.Description</p>
-                            <p>£@product.Price</p>*@
 }
 
 @*Code Section*@
@@ -46,5 +36,10 @@
     [Parameter]
     //public bool DisplayBuyButton { get; set; } = false;
     public bool DisplayBuyButton { get; set; } = true;
+
+    private void Buy(int productId)
+    {
+        CartService.AddProductToCart(productId);
+    }
 }
 

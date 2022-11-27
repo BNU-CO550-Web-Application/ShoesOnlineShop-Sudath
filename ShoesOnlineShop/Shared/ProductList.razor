@@ -1,45 +1,18 @@
 ﻿@*UI Section*@
-@inject CartService CartService
 <h3>Product List</h3>
 
-@foreach(Product product in Products)
+@foreach (Product item in Products)
 {
-    <div class="card w-50">
-        <img class="card-img-top " src="..." alt="Card image cap">
-        <div class="card-header">
-            NIKE
-        </div>
-    
-        <div class="card-body">
-
-            <h5 class="card-title">Shoe @product.Id: @product.Name</h5>
-            <p class="card-text">@product.Description</p>
-            <blockquote class="card-text"><strong>£@product.Price</strong></blockquote>
-
-            @if(DisplayBuyButton)
-            {
-                <button class="btn btn-primary" type="button"
-                    @onclick="() => Buy(product.Id)">Buy</button>
-            }
-        </div>
-    </div>
+    <ProductView product="item"></ProductView>
 }
 
+
 @*Code Section*@
-@code {
+@code 
+{  
 
-    [EditorRequired]
-    [Parameter]
-    // public List<Product> Products { get; set; } = new();
-    public List<Product>Products { get; set; } = ProductServicec.Products.ToList();
-
-    [Parameter]
-    //public bool DisplayBuyButton { get; set; } = false;
-    public bool DisplayBuyButton { get; set; } = true;
-
-    private void Buy(int productId)
-    {
-        CartService.AddProductToCart(productId);
-    }
+        [EditorRequired]
+        [Parameter]
+        public List<Product> Products { get; set; } = ProductService.Products.ToList();
 }
 

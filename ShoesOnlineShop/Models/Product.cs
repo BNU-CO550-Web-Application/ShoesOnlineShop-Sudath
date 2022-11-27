@@ -14,7 +14,12 @@ namespace ShoesOnlineShop.Models
         [StringLength(255)]
         public string? Description { get; set; } = null;
 
-        [Range(0, 100.00)]
+        [StringLength(200)]
+        public string ImageURL {get; set;} = string.Empty;
+
+        [Range(1.00, 100.00)]
         public decimal Price { get; set; } = 0;
+
+        public int Category { get; set; } = 0;
     }
 }

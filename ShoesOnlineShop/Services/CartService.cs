@@ -16,6 +16,7 @@ namespace ShoesOnlineShop.Services
 
                 item.Product = product;
                 item.PurachasePrice = product.Price;
+              //  item.Quantity = 1;
                 SelectedItms.Add(item);
             }
            

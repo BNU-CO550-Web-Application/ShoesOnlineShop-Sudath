@@ -7,29 +7,29 @@ namespace ShoesOnlineShop.Services
     {
         public static readonly List<Product> Products = new List<Product>()
         {
-            new Product ()
+            new()
             {
-                Id = 1,
+                Id = 1001,
                 Name = "Nike Air Max SC Men's Shoe",
-                ImageURL = "image.jpg",
+                ImageURL = "images/Nike2.jpg",
                 Description = "With its easy-going lines, heritage athletics look and, of course, visible Air cushioning.",
                 Category = 2,
                 Price = 57
             },
-            new Product ()
+            new()
             {
-                Id = 1,
+                Id = 1002,
                 Name = "Nike Air Max 270 Mens Trainers",
-                ImageURL = "image.jpg",
+                ImageURL = "images/Nike3.jpg",
                 Description = "The Air Max 270 from Nike delivers unrivalled all-day comfort. ",
                 Category = 2,
                 Price = 70
             },
-            new Product ()
+            new()
             {
-                Id = 1,
+                Id = 1003,
                 Name = "Air Max Invigor Trainers Mens",
-                ImageURL = "image.jpg",
+                ImageURL = "images/Nike4.jpg",
                 Description = "The Invigor trainers have been engineered with a breathe tech upper which is light, .",
                 Category = 2,
                 Price = 80

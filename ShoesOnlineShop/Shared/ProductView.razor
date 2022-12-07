@@ -1,11 +1,9 @@
 ﻿@*UI Section*@
 @inject CartService CartService
-<div class="card w-50">
-       <div class="card-header">
-            NIKE
-        </div>
+<div class="card" style="width: 18rem; height: 40rem;">
+@*<div class="card-group">*@
+    <img class="card-img-top" src="@product.ImageURL" alt="Card image cap" />
         <div class="card-body">
-
             <h5 class="card-title">Shoe @product.Id: @product.Name</h5>
             <p class="card-text">@product.Description</p>
             <blockquote class="card-text"><strong>£@product.Price</strong></blockquote>
@@ -13,7 +11,7 @@
             @if(DisplayBuyButton)
             {
                 <button class="btn btn-primary" type="button"
-                    @onclick="() => Buy(product.Id)">Buy</button>
+                    @onclick="()=> Buy(product.Id)">Buy</button>
             }
         </div>
 </div>
